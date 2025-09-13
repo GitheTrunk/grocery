@@ -20,7 +20,7 @@ class BottomNavBar extends StatelessWidget {
       items: [
         SalomonBottomBarItem(icon: Icon(Icons.home), title: Text('Home')),
         SalomonBottomBarItem(
-          icon: Icon(Icons.shopping_cart),
+          icon: Icon(Icons.shopping_bag),
           title: Text('My Cart'),
         ),
         SalomonBottomBarItem(
