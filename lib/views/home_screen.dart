@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:grocery/controllers/home_controller.dart';
 import 'package:grocery/widgets/appbar/custom_appbar.dart';
 import 'package:grocery/widgets/search_bar.dart' as custom_widgets;
+import 'package:grocery/widgets/slider/card_slider.dart';
 
 class HomeScreen extends StatefulWidget {
   final HomeController homeController = HomeController();
@@ -36,6 +37,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     debugPrint('Filter tapped');
                   },
                 ),
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 12.0),
+                child: CardSlider(),
               ),
             ),
           ],
