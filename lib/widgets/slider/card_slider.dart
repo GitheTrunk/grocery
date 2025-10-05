@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 class CardSlider extends StatelessWidget {
   final List<String> newItem = [
-    'assets/images/illustrations/slider_1.jpg',
-    'assets/images/illustrations/slider_2.jpg',
-    'assets/images/illustrations/slider_3.jpg',
+    'assets/images/illustrations/slider1.png',
+    'assets/images/illustrations/slider2.png',
+    'assets/images/illustrations/slider3.png',
   ];
 
   CardSlider({super.key});
@@ -14,7 +14,7 @@ class CardSlider extends StatelessWidget {
   Widget build(BuildContext context) {
     return CarouselSlider(
       options: CarouselOptions(
-        height: 180,
+        height: 140,
         autoPlay: true,
         enlargeCenterPage: true,
         viewportFraction: 0.90,
@@ -33,24 +33,12 @@ class CardSlider extends StatelessWidget {
                   Container(
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
-                        colors: [Colors.black54, Colors.transparent],
+                        colors: [Colors.black12, Colors.transparent],
                         begin: Alignment.bottomCenter,
                         end: Alignment.topCenter,
                       ),
                     ),
                   ),
-                  // const Positioned(
-                  //   bottom: 10,
-                  //   left: 10,
-                  //   child: Text(
-                  //     "Special Offer",
-                  //     style: TextStyle(
-                  //       color: Colors.white,
-                  //       fontSize: 16,
-                  //       fontWeight: FontWeight.bold,
-                  //     ),
-                  //   ),
-                  // ),
                 ],
               ),
             );
