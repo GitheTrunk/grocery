@@ -4,6 +4,7 @@ class ProductCard extends StatelessWidget {
   final String image;
   final String productName;
   final String productPrice;
+  final String productUnit;
   final VoidCallback onAddToCart;
 
   const ProductCard({
@@ -11,6 +12,7 @@ class ProductCard extends StatelessWidget {
     required this.image,
     required this.productName,
     required this.productPrice,
+    required this.productUnit,
     required this.onAddToCart,
   });
 
@@ -40,21 +42,20 @@ class ProductCard extends StatelessWidget {
             ),
             const SizedBox(height: 4.0),
             Text(
-              '\$ $productPrice',
-              style: TextStyle(fontSize: 14, color: Colors.green),
+              productUnit,
+              style: TextStyle(fontSize: 14, color: Colors.grey[600]),
             ),
-            const Spacer(),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: onAddToCart,
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12.0),
-                  ),
+            const SizedBox(height: 2.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+              children: [
+                Text(
+                  '\$ $productPrice',
+                  style: TextStyle(fontSize: 14, color: Colors.green),
                 ),
-                child: const Text('Add to Cart'),
-              ),
+                IconButton(onPressed: onAddToCart, icon: const Icon(Icons.add)),
+              ],
             ),
           ],
         ),

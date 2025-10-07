@@ -24,20 +24,17 @@ class ProductGrid extends StatelessWidget {
           image: product['image'],
           productName: product['productName'],
           productPrice: product['productPrice'],
-          onAddToCart: () {
-            ScaffoldMessenger.of(context).showMaterialBanner(
-              MaterialBanner(
-                content: Text('${product['productName']} added to cart'),
-                actions: [
-                  TextButton(
-                    onPressed: () {
-                      ScaffoldMessenger.of(context).hideCurrentMaterialBanner();
-                    },
-                    child: const Text('DISMISS'),
-                  ),
-                ],
-              ),
-            );
+          productUnit: product['productUnit'],
+          onAddToCart: () async {
+            await Future.delayed(const Duration(milliseconds: 300));
+            if (context.mounted) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  backgroundColor: Theme.of(context).colorScheme.primary,
+                  content: Text('${product['productName']} added to cart'),
+                ),
+              );
+            }
           },
         );
       },
