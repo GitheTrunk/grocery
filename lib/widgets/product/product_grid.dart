@@ -21,16 +21,17 @@ class ProductGrid extends StatelessWidget {
       itemBuilder: (context, index) {
         final product = products[index];
         return ProductCard(
-          image: product['image'],
-          productName: product['productName'],
-          productPrice: product['productPrice'],
-          productUnit: product['productUnit'],
+          image: product['image']!,
+          productName: product['productName']!,
+          productPrice: product['productPrice']!,
+          productUnit: product['productUnit']!,
           onAddToCart: () async {
             await Future.delayed(const Duration(milliseconds: 300));
             if (context.mounted) {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   backgroundColor: Theme.of(context).colorScheme.primary,
+                  duration: const Duration(seconds: 1),
                   content: Text('${product['productName']} added to cart'),
                 ),
               );

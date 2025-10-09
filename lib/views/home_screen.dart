@@ -49,9 +49,20 @@ class _HomeScreenState extends State<HomeScreen> {
             SliverToBoxAdapter(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  'Categories',
-                  style: Theme.of(context).textTheme.headlineSmall,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Categories',
+                      style: Theme.of(context).textTheme.headlineSmall,
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/categories');
+                      },
+                      child: const Text('See All'),
+                    ),
+                  ],
                 ),
               ),
             ),
