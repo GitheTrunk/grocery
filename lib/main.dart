@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:grocery/views/categories.dart';
+import 'package:grocery/views/categories_screen.dart';
 import 'package:grocery/views/favorite_screen.dart';
 import 'package:grocery/views/home_screen.dart';
 import 'package:grocery/themes/theme.dart';
@@ -23,7 +23,7 @@ void main() {
         '/favorite': (context) => const FavoriteScreen(),
         '/profile': (context) => const ProfileScreen(),
         '/notifications': (context) => const NotificationScreen(),
-        '/categories': (context) => const Categories(),
+        '/categories': (context) => const CategoriesScreen(),
       },
     ),
   );
