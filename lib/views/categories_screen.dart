@@ -23,6 +23,17 @@ class _CategoriesState extends State<CategoriesScreen> {
                 Navigator.pushNamed(context, '/notications');
               },
             ),
+            //  SliverToBoxAdapter(
+            //     child: Padding(
+            //       padding: const EdgeInsets.all(16.0),
+            //       child: Text(
+            //         'Browse by Category',
+            //         style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+            //               fontWeight: FontWeight.bold,
+            //             ),
+            //       ),
+            //     ),
+            //   ),
             SliverToBoxAdapter(
               child: CategoryGrid(
                 categories: [

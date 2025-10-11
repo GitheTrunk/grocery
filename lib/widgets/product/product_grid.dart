@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery/models/product.dart';
 import 'package:grocery/widgets/product/product_card.dart';
 
 class ProductGrid extends StatelessWidget {
@@ -16,15 +17,19 @@ class ProductGrid extends StatelessWidget {
         crossAxisCount: 2,
         mainAxisSpacing: 12,
         crossAxisSpacing: 12,
-        childAspectRatio: 0.75,
+        childAspectRatio: 0.70,
       ),
       itemBuilder: (context, index) {
         final product = products[index];
         return ProductCard(
-          image: product['image']!,
-          productName: product['productName']!,
-          productPrice: product['productPrice']!,
-          productUnit: product['productUnit']!,
+          product: Product(
+            id: product['id'] ?? '',
+            name: product['name'] ?? 'Unknown',
+            image: product['image'] ?? 'assets/icons/loading.png',
+            price: product['price'] ?? 0.0,
+            unit: product['unit'] ?? '',
+            category: product['category'] ?? 'Unrecognized',
+          ),
           onAddToCart: () async {
             await Future.delayed(const Duration(milliseconds: 300));
             if (context.mounted) {
