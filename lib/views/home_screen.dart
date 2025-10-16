@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:grocery/controllers/categories_controller.dart';
 import 'package:grocery/controllers/home_controller.dart';
 import 'package:grocery/widgets/appbar/custom_appbar.dart';
+import 'package:grocery/widgets/category/category_row.dart';
 import 'package:grocery/widgets/product/product_grid.dart';
 import 'package:grocery/widgets/search_bar.dart' as custom_widgets;
 import 'package:grocery/widgets/slider/card_slider.dart';
@@ -16,6 +19,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(CategoriesController());
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
@@ -47,23 +51,36 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Categories',
-                      style: Theme.of(context).textTheme.headlineSmall,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Categories',
+                          style: Theme.of(context).textTheme.headlineSmall,
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/categories');
+                          },
+                          child: const Text('See All'),
+                        ),
+                      ],
                     ),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/categories');
+                  ),
+                  Obx(
+                    () => CategoryRow(
+                      catgories: controller.categories,
+                      onCategorySelected: (categoryName) {
+                        controller.selectCategory(categoryName);
                       },
-                      child: const Text('See All'),
+                      selectedCategory: controller.selectedCategory.value,
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
             SliverToBoxAdapter(
